@@ -25,7 +25,7 @@ function Header(props) {
     return (
         // enclose existing jsx into Elevation component to allow that affect
         <ElevationScroll>
-            <AppBar position="fixed" color="primary">
+            <AppBar position="fixed" color="secondary">
                 <Toolbar>
                     Arc Development
                 </Toolbar>
