@@ -36,7 +36,8 @@ const useStyles = makeStyles(theme => ({
         ...theme.mixins.toolbar
     },
     logo: {
-        height: '7em'
+        // em is a unit of size that is responsive by nature
+        height: '5em'
     }
 }))
 
@@ -48,7 +49,8 @@ function Header(props) {
             // enclose existing jsx into Elevation component to allow that affect
             <ElevationScroll>
                 <AppBar position="fixed">
-                    <Toolbar>
+                    {/* disableGutters removes any padding associated w/Toolbar */}
+                    <Toolbar disableGutters={true}>
                         <img alt="appbar logo" className={classes.logo} src={logo} />
                         Arc Development
                     </Toolbar>
