@@ -2,7 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import { Typography } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
 
 function ElevationScroll(props) {
     const { children } = props;
@@ -22,19 +22,39 @@ function ElevationScroll(props) {
     });
 }
 
-function Header(props) {
-    return (
-        // enclose existing jsx into Elevation component to allow that affect
-        <ElevationScroll>
-            <AppBar position="fixed">
-                <Toolbar>
-                    <Typography variant="h3" >
-                        Arc Development
-                    </Typography>
+// access the existing Default Theme style props in theme.mixings.toolbar
+// this lets us take the margin values from the default style 
 
-                </Toolbar>
-            </AppBar>
-        </ElevationScroll>
+// makeStyles is a function that takes in JSS (so react CSS) object and 
+// returns css style to pass on to component className=<here>
+const useStyles = makeStyles(theme => ({
+    toolbarMargin: {
+        // since theme is passed in App ThemeProvider
+        // passing it to make styles allows us to access it 
+        // and add theme styles to useStyles classes we build
+        ...theme.mixins.toolbar
+    }
+}))
+
+function Header(props) {
+    const classes = useStyles();
+    return (
+        // add to treate below components as if they were wrapped
+        <React.Fragment>
+            // enclose existing jsx into Elevation component to allow that affect
+            <ElevationScroll>
+                <AppBar position="fixed">
+                    <Toolbar>
+                        <Typography variant="h3" >
+                            Arc Development
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+            </ElevationScroll>
+            {/* now overall HEADER component will have toolbarMargin props */}
+            <div className={classes.toolbarMargin} />       
+        </React.Fragment>
+
 
     );
 }
