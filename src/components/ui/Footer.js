@@ -18,7 +18,14 @@ export default function Footer() {
     const classes = useStyles()
     return (
         <footer className={classes.footer}>
-            Example Footer
+            <Grid container spacing={2}>
+                <Grid container item xs={6}>
+                    Title1
+                </Grid>
+                <Grid container item xs={6}>
+                    Title2
+                </Grid>
+            </Grid>
         </footer>
     );
 }
