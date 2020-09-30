@@ -34,7 +34,9 @@ const useStyles = makeStyles(theme => ({
         // since theme is passed in App ThemeProvider
         // passing it to make styles allows us to access it 
         // and add theme styles to useStyles classes we build
-        ...theme.mixins.toolbar
+        ...theme.mixins.toolbar,
+        // so that content does not get covered by header
+        marginBottom: "3em"
     },
     logo: {
         // em is a unit of size that is responsive by nature
@@ -45,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     },
     tab: {
         textTransform: "none",
-        fontWeight: 700,
+        fontWeight: 400,
         fontSize: "1rem"
     }
 }))
