@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-
 import { Grid } from '@material-ui/core';
 
 
@@ -10,6 +9,11 @@ const useStyles = makeStyles(theme => ({
         bottom: 0,
         backgroundColor: theme.palette.common.blue,
         width: "100%",
+        padding: "3em"
+    },
+    link: {
+        fontWeight: 300,
+        color: "white"
     }
 
 }))
@@ -30,19 +34,19 @@ export default function Footer() {
             {/* Top Grid:
                 - best to only specify spacing here
              */}
-            <Grid container>
+            <Grid container spacing={2} justify="center" >
                 {/* item: used to keep container from taking full width */}
                 <Grid item>
                     {/* container with direction: controls enclosed items to display as col/row */}
                     <Grid container direction="column">
-                        <Grid item>Col1 Row1</Grid>
-                        <Grid item>Col1 Row2</Grid>
+                        <Grid item className={classes.link}>Col1 Row1</Grid>
+                        <Grid item className={classes.link}>Col1 Row2</Grid>
                     </Grid>
                 </Grid>
                 <Grid item>
                     <Grid container direction="column">
-                        <Grid item>Col2 Row1</Grid>
-                        <Grid item>Col2 Row2</Grid>
+                        <Grid item className={classes.link}>Col2 Row1</Grid>
+                        <Grid item className={classes.link}>Col2 Row2</Grid>
                     </Grid>
                 </Grid>
             </Grid>
