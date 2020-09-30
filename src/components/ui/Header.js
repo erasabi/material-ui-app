@@ -4,6 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { makeStyles } from '@material-ui/core';
 import logo from '../../media/logo.svg';
+import { Tabs, Tab } from '@material-ui/core';
 
 function ElevationScroll(props) {
     const { children } = props;
@@ -38,6 +39,14 @@ const useStyles = makeStyles(theme => ({
     logo: {
         // em is a unit of size that is responsive by nature
         height: '5em'
+    },
+    tabContainer: {
+        marginLeft: "auto"
+    },
+    tab: {
+        textTransform: "none",
+        fontWeight: 700,
+        fontSize: "1rem"
     }
 }))
 
@@ -46,21 +55,26 @@ function Header(props) {
     return (
         // add to treate below components as if they were wrapped
         <React.Fragment>
-            // enclose existing jsx into Elevation component to allow that affect
+            {/* enclose existing jsx into Elevation component to allow that affect */}
             <ElevationScroll>
                 <AppBar position="fixed">
                     {/* disableGutters removes any padding associated w/Toolbar */}
                     <Toolbar disableGutters={true}>
                         <img alt="appbar logo" className={classes.logo} src={logo} />
                         Arc Development
+                        <Tabs className={classes.tabContainer}>
+                            <Tab className={classes.tab} label="Home"></Tab>
+                            <Tab className={classes.tab} label="Services"></Tab>
+                            <Tab className={classes.tab} label="The Revolution"></Tab>
+                            <Tab className={classes.tab} label="About Us"></Tab>
+                            <Tab className={classes.tab} label="Contact Us"></Tab>
+                        </Tabs>
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
             {/* now overall HEADER component will have toolbarMargin props */}
             <div className={classes.toolbarMargin} />       
         </React.Fragment>
-
-
     );
 }
 
