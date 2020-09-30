@@ -64,7 +64,7 @@ function Header(props) {
                     <Toolbar disableGutters={true}>
                         <img alt="appbar logo" className={classes.logo} src={logo} />
                         Arc Development
-                        <Tabs className={classes.tabContainer}>
+                        <Tabs className={classes.tabContainer} value={0}>
                             <Tab className={classes.tab} label="Home"></Tab>
                             <Tab className={classes.tab} label="Services"></Tab>
                             <Tab className={classes.tab} label="The Revolution"></Tab>
