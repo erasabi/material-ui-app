@@ -18,12 +18,32 @@ export default function Footer() {
     const classes = useStyles()
     return (
         <footer className={classes.footer}>
-            <Grid container spacing={2}>
-                <Grid container item xs={6}>
-                    Title1
+            {/* container:
+                - will take all available width
+                - good when you want to control:
+                    top-grid: spacing
+                    other: direction
+            item: 
+                - will only take space needed
+                - place outside rows/cols to control space taken */}
+
+            {/* Top Grid:
+                - best to only specify spacing here
+             */}
+            <Grid container>
+                {/* item: used to keep container from taking full width */}
+                <Grid item>
+                    {/* container with direction: controls enclosed items to display as col/row */}
+                    <Grid container direction="column">
+                        <Grid item>Col1 Row1</Grid>
+                        <Grid item>Col1 Row2</Grid>
+                    </Grid>
                 </Grid>
-                <Grid container item xs={6}>
-                    Title2
+                <Grid item>
+                    <Grid container direction="column">
+                        <Grid item>Col2 Row1</Grid>
+                        <Grid item>Col2 Row2</Grid>
+                    </Grid>
                 </Grid>
             </Grid>
         </footer>
